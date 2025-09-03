@@ -1,0 +1,18 @@
+{
+  "name": "spectra-market",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "version": "1.0.0",
+  "workspaces": [
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c auto \"pnpm -C apps/api dev\" \"pnpm -C apps/web dev\"",
+    "build": "pnpm -C api build && pnpm -C web build",
+    "start": "concurrently -n API,WEB -c auto \"pnpm -C api start\" \"pnpm -C web start\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
